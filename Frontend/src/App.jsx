@@ -1,6 +1,6 @@
 import './App.css'
 import { Routes, Route } from "react-router";
-import { HomePage, SignupPage, LoginPage, LogoutPage, LoadingPage, ProblemsPage, SolveProblemPage, AccountPage, VerifyEmailPage, CoursesPage, CourseOverviewPage, CourseContentPage, ProfilePage, AdminPortal, LeaderboardPage, MyProblemsPage, MySprintsPage, PremiumPage, ContestsPage, PremiumCheckoutPage, PrivacyPolicyPage, AboutUsPage, ContactPage } from "./pages";
+import { HomePage, SignupPage, LoginPage, LogoutPage, LoadingPage, ProblemsPage, SolveProblemPage, AccountPage, VerifyEmailPage, CoursesPage, CourseOverviewPage, CourseContentPage, ProfilePage, AdminPortal, LeaderboardPage, MyProblemsPage, MySprintsPage, PremiumPage, ContestsPage, PremiumCheckoutPage, PrivacyPolicyPage, AboutUsPage, ContactPage, ForgotPasswordPage, ResetPasswordPage } from "./pages";
 import { authenticateUser } from './slices/authSlice';
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState, useCallback } from 'react';
@@ -37,6 +37,8 @@ function App() {
             <Route index element={ <HomePage /> }/>
             <Route path="/signup" element={ isAuthenticated ? <Navigate to="/" /> : <SignupPage /> } />
             <Route path="/login" element={ isAuthenticated ? <Navigate to="/" /> : <LoginPage />} />
+            <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+            <Route path="/reset-password" element={<ResetPasswordPage />} />
             <Route path="/logout" element={ isAuthenticated ? <LogoutPage /> :  <Navigate to="/" /> }/>
             <Route path="/courses" element={ isAuthenticated ? <CoursesPage /> : <Navigate to="/login" /> }/>
             <Route path="/leaderboard" element={ isAuthenticated ? <LeaderboardPage /> : <Navigate to="/login" /> }/>

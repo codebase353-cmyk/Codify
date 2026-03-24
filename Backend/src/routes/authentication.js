@@ -5,6 +5,8 @@ const { verifyToken, doesAccountExist, isAdmin } = require("../middlewares");
 const { authWithGoogle, redirectToGooglePage } = require("../controllers/authentication/continueWithGoogle");
 const { authWithGithub, redirectToGithubPage } = require("../controllers/authentication/continueWithGithub");
 const { sendVerificationEmail, verifyEmail } = require("../controllers/authentication/verifyEmail");
+const forgotPassword = require("../controllers/authentication/forgotPassword");
+const resetPassword = require("../controllers/authentication/resetPassword");
 
 // authenticating user
 authRouter.get("/check", verifyToken, doesAccountExist, sendUserBasicDetails);
@@ -37,6 +39,12 @@ authRouter.get('/verify-email/initialize', verifyToken, doesAccountExist, sendVe
 
 // to verify email
 authRouter.get('/verify-email', verifyEmail);
+
+// forgot password
+authRouter.post('/forgot-password', forgotPassword);
+
+// reset password with token
+authRouter.post('/reset-password', resetPassword);
 
 
 module.exports = authRouter;

@@ -24,6 +24,8 @@ import PremiumCheckoutPage from "./PremiumCheckoutPage";
 import PrivacyPolicyPage from "./PrivacyPolicyPage";
 import AboutUsPage from "./AboutUsPage";
 import ContactPage from "./ContactPage";
+import ForgotPasswordPage from "./ForgotPasswordPage";
+import ResetPasswordPage from "./ResetPasswordPage";
 
 
 export { 
@@ -52,6 +54,8 @@ export {
     PremiumCheckoutPage,
     PrivacyPolicyPage,
     AboutUsPage,
-    ContactPage
+    ContactPage,
+    ForgotPasswordPage,
+    ResetPasswordPage
 };
 
