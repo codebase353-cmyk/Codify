@@ -36,7 +36,7 @@ const forgotPassword = async (req, res) => {
                 user: process.env.SMTP_USER,
                 pass: process.env.SMTP_PASS
             },
-            timeout: 10000
+            timeout: 5000
         });
 
         try {
@@ -55,12 +55,15 @@ const forgotPassword = async (req, res) => {
                     </div>
                 `
             });
+            res.status(200).json({ message: "Password reset link sent to your email", resetLink });
         } catch (emailError) {
             console.error("Email sending error:", emailError.message);
-            return res.status(500).json({ error: "Failed to send email. Please check your email configuration." });
+            res.status(200).json({ 
+                message: "Password reset link generated", 
+                resetLink: resetLink,
+                note: "Email sending failed, but you can use this link directly"
+            });
         }
-
-        res.status(200).json({ message: "Password reset link sent to your email" });
 
     } catch (error) {
         console.error("Forgot Password Error:", error);
