@@ -36,13 +36,19 @@ app.get("/", (req, res) => {
 });
 
 const InitializeConnections = async () => {
-    // connecting with database and redis
-    await Promise.all([main(), redisClient.connect()]);
+    try {
+        // connecting with database and redis
+        await Promise.all([main(), redisClient.connect()]);
 
-    // starting server
-    app.listen(process.env.PORT, async () => {
-        console.log("HackForge server started");
-    })
+        // starting server
+        const PORT = process.env.PORT || 3000;
+        app.listen(PORT, () => {
+            console.log(`HackForge server started on port ${PORT}`);
+        });
+    } catch (error) {
+        console.error("Failed to start server:", error);
+        process.exit(1);
+    }
 }
 
 InitializeConnections()
