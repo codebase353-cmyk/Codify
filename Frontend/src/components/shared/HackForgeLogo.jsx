@@ -27,7 +27,7 @@ const HackForgeLogo = ({ size = 8, className = "" }) => {
         className="font-extrabold text-orange-500 mx-1 select-none"
         style={{ fontSize: `${textFontSize}px`, lineHeight: '1' }}
       >
-        HF
+        CX
       </span>
       <svg 
         width={bracketWidth} 

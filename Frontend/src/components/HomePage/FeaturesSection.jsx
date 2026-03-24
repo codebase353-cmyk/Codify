@@ -12,7 +12,7 @@ const FeaturesSection = () => (
       <div className="text-center mb-12">
         <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">Everything You Need to Excel</h2>
         <p className="mt-4 max-w-2xl mx-auto text-lg text-slate-600 dark:text-gray-400">
-          HackForge provides a comprehensive suite of tools and resources to help you on your coding journey.
+          CodifyX provides a comprehensive suite of tools and resources to help you on your coding journey.
         </p>
       </div>
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">

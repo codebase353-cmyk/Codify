@@ -23,7 +23,7 @@ export const ALL_CONTESTS = [
         participants: 0,
         description: 'Our biweekly contest for all skill levels. A great way to practice under pressure.',
         rules: ['Contest duration is 120 minutes.', 'No penalties for incorrect submissions.'],
-        prizes: ['Top 20: 500 HackForge Coins'],
+        prizes: ['Top 20: 500 CodifyX Coins'],
         problemIds: ['p1', 'p4', 'p2']
     },
     // {

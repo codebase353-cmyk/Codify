@@ -440,4 +440,4 @@ const CourseContentPage = () => {
   );
 };
 
-export default CourseContentPage;
+export default CourseContentPage

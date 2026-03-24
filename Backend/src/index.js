@@ -1,3 +1,6 @@
+require("dotenv").config(); // ✅ sabse pehle
+const dns = require("node:dns");
+dns.setServers(["8.8.8.8", "8.8.4.4"]);
 const express = require("express");
 const app = express();
 const main = require("./config/database");

@@ -13,7 +13,7 @@ const PaymentSuccessPage = ({ plan, onComplete }) => {
       </h1>
 
       <p className="mt-4 text-lg text-[#475569] dark:text-[#94a3b8]">
-        Welcome to HackForge Premium! You have successfully subscribed to the
+        Welcome to  CodifyX Premium! You have successfully subscribed to the
         <span className="font-bold text-[#1e293b] dark:text-[#e2e8f0]">
           {' '}
           {plan.name}

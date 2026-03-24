@@ -29,16 +29,16 @@ const TechBadge = ({ href, children }) => {
   );
 
   if (href) {
-    return (
-      <a
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="group transform transition-transform duration-200 hover:scale-105"
-      >
-        {badgeContent}
-      </a>
-    );
+  return (
+  <a
+    href={href}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="group transform transition-transform duration-200 hover:scale-105"
+  >
+    {badgeContent}
+  </a>
+);
   }
 
   return badgeContent;
@@ -103,10 +103,12 @@ const AboutUsPage = () => {
 
   return (
     <div className="max-w-5xl mx-auto py-8">
+
+      {/* Header */}
       <header className="text-center mb-16 relative">
         <HackForgeLogo className="absolute inset-0 w-full h-full text-slate-200/30 dark:text-slate-800/40 -z-10 transform scale-150" />
         <h1 className="text-5xl md:text-6xl font-extrabold text-[#1e293b] dark:text-[#e2e8f0]">
-          About HackForge
+          About CodifyX
         </h1>
         <p className="mt-4 text-xl text-[#475569] dark:text-[#94a3b8] max-w-3xl mx-auto">
           An advanced coding platform designed to help developers learn, practice, and master problem-solving skills
@@ -114,24 +116,26 @@ const AboutUsPage = () => {
         </p>
       </header>
 
+      {/* Mission */}
       <section className="mb-20">
         <div className="flex justify-center items-center">
           <div className="bg-[#ffffff] dark:bg-[#232b3b] p-8 rounded-xl border border-[#e2e8f0] dark:border-[#334155]">
-            <h2 className="text-3xl font-bold mb-4 flex items-center">
+            <h2 className="text-3xl font-bold mb-4 flex items-center text-[#1e293b] dark:text-[#e2e8f0]">
               <Target size={30} className="mr-3 text-[#f97316]" />
               Our Mission
             </h2>
             <p className="text-[#475569] dark:text-[#94a3b8] leading-relaxed">
               Many learners struggle with unstructured problem sets, a lack of progress tracking, and the temptation
-              of solution spoilers. HackForge was built to solve these challenges by providing a one-stop platform
+              of solution spoilers. CodifyX was built to solve these challenges by providing a one-stop platform
               that combines practice, guided learning, and community features in a seamless, secure experience.
             </p>
           </div>
         </div>
       </section>
 
+      {/* What We Offer */}
       <section className="mb-20">
-        <h2 className="text-4xl font-bold text-center mb-10">What We Offer</h2>
+        <h2 className="text-4xl font-bold text-center mb-10 text-[#1e293b] dark:text-[#e2e8f0]">What We Offer</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {features.map((feature) => (
             <FeatureCard key={feature.title} icon={feature.icon} title={feature.title}>
@@ -141,15 +145,16 @@ const AboutUsPage = () => {
         </div>
       </section>
 
+      {/* Technology */}
       <section className="mb-20 text-center">
-        <h2 className="text-4xl font-bold mb-6">Our Technology</h2>
+        <h2 className="text-4xl font-bold mb-6 text-[#1e293b] dark:text-[#e2e8f0]">Our Technology</h2>
         <p className="text-lg text-[#475569] dark:text-[#94a3b8] mb-8 max-w-2xl mx-auto">
           We use a modern, robust stack to deliver a fast, secure, and reliable experience.
         </p>
         <div className="space-y-6">
           {Object.entries(technologies).map(([section, techs]) => (
             <div key={section}>
-              <h3 className="text-xl font-semibold mb-3 capitalize">{section}</h3>
+              <h3 className="text-xl font-semibold mb-3 capitalize text-[#1e293b] dark:text-[#e2e8f0]">{section}</h3>
               <div className="flex flex-wrap justify-center gap-3">
                 {techs.map((tech) => (
                   <TechBadge key={tech.name} href={tech.href}>
@@ -162,30 +167,32 @@ const AboutUsPage = () => {
         </div>
       </section>
 
+      {/* Team */}
       <section className="bg-[#ffffff] dark:bg-[#232b3b] rounded-xl p-8 md:p-12 border border-[#e2e8f0] dark:border-[#334155] mb-10">
-        <h2 className="text-4xl font-bold text-center mb-10">Meet the Team</h2>
+        <h2 className="text-4xl font-bold text-center mb-10 text-[#1e293b] dark:text-[#e2e8f0]">Meet the Team</h2>
         <div className="max-w-md mx-auto bg-[#f8fafc] dark:bg-[#1a2332] rounded-lg p-6 text-center shadow-lg">
           <img
-            src="https://media.licdn.com/dms/image/v2/D4D03AQFe8N0-AYKDjQ/profile-displayphoto-shrink_400_400/B4DZZrv2sWH4Ag-/0/1745564429806?e=1756944000&v=beta&t=kkKMvth4HnqxL6HOcfvhZ7pEJTQY0tzIcXmuWCyGVvk"
-            alt="Prem Siddhartha"
-            className="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-[#f97316]"
+            src="https://raw.githubusercontent.com/ansh766/profile-assets/main/WhatsApp%20Image%202026-02-15%20at%2021.50.47_page-0001.jpg"
+            alt="Ansh Rastogi"
+            className="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-[#f97316] object-cover object-top"
           />
-          <h3 className="text-2xl font-bold text-[#1e293b] dark:text-[#e2e8f0]">Prem Siddhartha</h3>
+          <h3 className="text-2xl font-bold text-[#1e293b] dark:text-[#e2e8f0]">Ansh Rastogi</h3>
           <p className="text-[#f97316] font-semibold mb-3">Full Stack Developer</p>
           <p className="text-[#475569] dark:text-[#94a3b8] mb-4">
-            The mind and muscle behind HackForge, Prem is a passionate developer dedicated to creating tools that
-            empower other coders. He built HackForge to solve the common hurdles faced by learners in the tech space.
+            The mind and muscle behind CodifyX, Ansh is a passionate developer dedicated to creating tools that
+            empower other coders. He built CodifyX to solve the common hurdles faced by learners in the tech space.
           </p>
           <div className="flex justify-center space-x-4">
-            <a href="https://github.com/Siddharth9304" target="_blank" aria-label="Github Profile" className="text-slate-500 hover:text-[#f97316]">
+            <a href="https://github.com/ansh766" target="_blank" rel="noopener noreferrer" aria-label="Github Profile" className="text-slate-500 hover:text-[#f97316] transition-colors duration-200">
               <Github size={24} />
             </a>
-            <a href="https://www.linkedin.com/in/premsiddhartha" target="_blank" aria-label="LinkedIn Profile" className="text-slate-500 hover:text-[#f97316]">
+            <a href="https://www.linkedin.com/in/anshrastogi012" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" className="text-slate-500 hover:text-[#f97316] transition-colors duration-200">
               <Linkedin size={24} />
             </a>
           </div>
         </div>
       </section>
+
     </div>
   );
 };

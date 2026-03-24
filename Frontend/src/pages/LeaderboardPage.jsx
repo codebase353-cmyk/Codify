@@ -209,7 +209,7 @@ const LeaderboardPage = () => {
             
             <header className="px-4 py-5 sm:px-6 border-b border-slate-200 dark:border-slate-700/60 flex-shrink-0">
               <h1 className="text-xl sm:text-2xl font-semibold text-slate-800 dark:text-white">Leaderboard</h1>
-              <p className="text-sm text-slate-500 dark:text-slate-400 mt-0.5">See where you stand among the best coders on HackForge.</p>
+              <p className="text-sm text-slate-500 dark:text-slate-400 mt-0.5">See where you stand among the best coders on CodifyX.</p>
             </header>
 
             {myProfile && (

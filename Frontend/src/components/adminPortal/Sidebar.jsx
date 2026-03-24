@@ -35,7 +35,7 @@ const Sidebar = () => {
       <div className="h-16 flex items-center border-b border-[#E2E8F0] dark:border-[#334155]">
         <div className="flex items-center space-x-2 px-4">
           <HackForgeLogo size={7} className="" />
-          <span className="text-xl font-bold text-[#0F172A] dark:text-[#F8FAFC]">HackForge</span>
+          <span className="text-xl font-bold text-[#0F172A] dark:text-[#F8FAFC]">CodifyX</span>
         </div>
       </div>
       <nav className="flex-1 p-4 space-y-2">
@@ -44,7 +44,7 @@ const Sidebar = () => {
         ))}
       </nav>
       <div className="p-4 border-t border-[#E2E8F0] dark:border-[#334155]">
-        <p className="text-xs text-center text-[#64748B] dark:text-[#94A3B8]">© 2024 HackForge Admin</p>
+        <p className="text-xs text-center text-[#64748B] dark:text-[#94A3B8]">© 2026 CodifyX Admin</p>
       </div>
     </aside>
   );

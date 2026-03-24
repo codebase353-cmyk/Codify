@@ -1,4 +1,5 @@
 import { useForm } from 'react-hook-form';
+import emailjs from '@emailjs/browser';
 import {
   MailIcon,
   UserIcon,
@@ -17,9 +18,22 @@ const ContactPage = () => {
   } = useForm();
 
   const onSubmit = async (data) => {
-    await new Promise((res) => setTimeout(res, 1500));
-    console.log('Form Submitted:', data);
-    reset(); // clear fields after submit
+    try {
+      await emailjs.send(
+        'service_ifbuubp',
+        'template_5d0gm52',
+        {
+          from_name: data.name,
+          from_email: data.email,
+          title: data.subject,
+          message: data.message,
+        },
+        'h1aUZ6dx78lmnr4It'
+      );
+      reset();
+    } catch (error) {
+      console.error('Email error:', error);
+    }
   };
 
   const InputField = ({ id, name, type, placeholder, icon, registerField, error }) => (
@@ -56,8 +70,8 @@ const ContactPage = () => {
         </p>
         <p className="mt-2 text-[#475569] dark:text-[#94a3b8]">
           Email:{' '}
-          <a href="mailto:contact@hackforge.dev" className="font-semibold text-[#f97316] hover:underline">
-            contact@hackforge.dev
+          <a href="mailto:rastogiiansh9@gmail.com" className="font-semibold text-[#f97316] hover:underline">
+            rastogiiansh9@gmail.com
           </a>
         </p>
       </header>
@@ -66,7 +80,7 @@ const ContactPage = () => {
         {isSubmitSuccessful ? (
           <div className="text-center p-8">
             <CheckCircleIcon size={48} className="mx-auto text-green-500 mb-4" />
-            <h2 className="text-2xl font-bold">Message Sent!</h2>
+            <h2 className="text-2xl font-bold text-[#1e293b] dark:text-[#e2e8f0]">Message Sent!</h2>
             <p className="text-[#475569] dark:text-[#94a3b8] mt-2">
               Thank you for reaching out. We'll get back to you as soon as possible.
             </p>

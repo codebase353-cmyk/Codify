@@ -29,9 +29,9 @@ const HeroSection = () => {
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
           className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight"
         >
-          <span className="block">Forge Your Skills.</span>
+          <span className="block">Build Your Code</span>
           <span className="block text-orange-500 dark:text-orange-400 mt-2">
-            Conquer Challenges.
+            Define Your Future
           </span>
         </motion.h1>
 
@@ -41,7 +41,7 @@ const HeroSection = () => {
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
           className="mt-6 max-w-md mx-auto text-lg sm:text-xl text-gray-600 dark:text-gray-300 md:mt-8 md:max-w-2xl"
         >
-          Join HackForge to practice coding, compete with peers, and elevate your problem-solving abilities to new heights.
+          Join CodifyX to practice coding, compete with peers, and elevate your problem-solving abilities to new heights.
         </motion.p>
 
         <motion.div

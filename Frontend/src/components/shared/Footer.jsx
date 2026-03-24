@@ -11,9 +11,8 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { name: 'GitHub', href: 'https://github.com/Siddharth9304' },
-    { name: 'Twitter', href: 'https://x.com/premSid9304' },
-    { name: 'LinkedIn', href: 'https://www.linkedin.com/in/premsiddhartha' },
+    { name: 'GitHub', href: 'https://github.com/ansh766' },
+    { name: 'LinkedIn', href: 'https://linkedin.com/in/anshrastogi012' },
   ];
 
   return (
@@ -23,7 +22,7 @@ const Footer = () => {
           <div className="space-y-4">
             <div className="flex items-center">
               <HackForgeLogo size={6} className="" />
-              <span className="font-bold text-xl text-slate-800 dark:text-white ml-2">HackForge</span>
+              <span className="font-bold text-xl text-slate-800 dark:text-white ml-2">CodifyX</span>
             </div>
             <p className="text-slate-600 dark:text-gray-400 text-sm">
               Sharpen your coding skills and forge your future with our comprehensive problem-solving platform.
@@ -57,7 +56,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="mt-12 border-t border-slate-200 dark:border-gray-700 pt-8 text-center">
-          <p className="text-base text-slate-500 dark:text-gray-400">&copy; {new Date().getFullYear()} HackForge. All rights reserved.</p>
+          <p className="text-base text-slate-500 dark:text-gray-400">&copy; {new Date().getFullYear()} CodifyX. All rights reserved.</p>
         </div>
       </div>
     </footer>

@@ -22,8 +22,8 @@ const ShareModal = ({ isOpen, onClose, problem }) => {
     ? window.location.href
     : `https://www.hackforge.dev/problems/${problem._id}`;
 
-  const shareTextForSocial = `Check out the problem: "${problemTitle}" on HackForge!`;
-  const shareMessageForCopy = `I'm working on the "${problemTitle}" problem on HackForge!\nCheck it out: <${problemUrl}>`;
+  const shareTextForSocial = `Check out the problem: "${problemTitle}" on CodifyX!`;
+  const shareMessageForCopy = `I'm working on the "${problemTitle}" problem on CodifyX!\nCheck it out: <${problemUrl}>`;
 
   useEffect(() => {
     const handleKeyDown = (event) => {

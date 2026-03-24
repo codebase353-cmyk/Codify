@@ -157,7 +157,7 @@ const PremiumCheckoutPage = () => {
               </div>
 
               <p className="text-xs text-slate-600 dark:text-slate-400 text-center mt-4">
-                By confirming, you allow HackForge to charge you for this payment
+                By confirming, you allow CodifyX to charge you for this payment
                 and future payments in accordance with their terms.
               </p>
             </div>

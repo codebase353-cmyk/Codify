@@ -64,9 +64,9 @@ const Navbar = ({darkTheme, handleThemeChange}) => {
     <nav className="bg-white/80 dark:bg-gray-800/70 backdrop-blur-lg shadow-lg dark:shadow-xl fixed w-full z-50 top-0 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          <Link to="/" className="flex items-center" aria-label="HackForge Home">
+          <Link to="/" className="flex items-center" aria-label="CodifyX Home">
             <HackForgeLogo size={7} className="" /> 
-            <span className="font-bold text-2xl text-slate-800 dark:text-white ml-3 tracking-tight">HackForge</span>
+            <span className="font-bold text-2xl text-slate-800 dark:text-white ml-3 tracking-tight">CodifyX</span>
           </Link>
           <div className="hidden md:flex items-center space-x-1">
             {navLinks.map((link) => (
