@@ -4,14 +4,25 @@ const jwt = require("jsonwebtoken");
 
 // Redirect user to Github's consent screen
 const redirectToGithubPage = (req, res) => {
-  const url = `https://github.com/login/oauth/authorize?client_id=${process.env.GITHUB_CLIENT_ID}&redirect_uri=${process.env.GITHUB_REDIRECT_URI}&scope=user:email`;
+  const redirectUri = process.env.GITHUB_REDIRECT_URI;
+  console.log('GitHub OAuth redirect URL:', redirectUri);
+  const url = `https://github.com/login/oauth/authorize?client_id=${process.env.GITHUB_CLIENT_ID}&redirect_uri=${redirectUri}&scope=user:email`;
   res.redirect(url);
 }
 
 const authWithGithub = async (req, res) => {
   try {
     const code = req.query.code;
+    const error = req.query.error;
+    
+    if (error) {
+      console.error('GitHub OAuth error:', error);
+      return res.redirect(`${process.env.FRONTEND_ORIGIN}/sociallogin/error/github?reason=${error}`);
+    }
+    
     if (!code) throw new Error('No code received');
+
+    console.log('GitHub OAuth: Exchanging code for token...');
 
     // Get access token from GitHub
     const tokenRes = await axios.post(
@@ -25,6 +36,12 @@ const authWithGithub = async (req, res) => {
         headers: { accept: 'application/json' },
       }
     );
+
+    console.log('GitHub OAuth token response:', tokenRes.data);
+
+    if (tokenRes.data.error) {
+      throw new Error(tokenRes.data.error_description || tokenRes.data.error);
+    }
 
     const accessToken = tokenRes.data.access_token;
 
@@ -93,8 +110,8 @@ const authWithGithub = async (req, res) => {
     res.redirect(process.env.FRONTEND_ORIGIN);
 
   } catch (err) {
-    console.error(err.response?.data || err.message);
-    res.redirect(`${process.env.FRONTEND_ORIGIN}/sociallogin/error/github`);
+    console.error('GitHub OAuth Error:', err.response?.data || err.message);
+    res.redirect(`${process.env.FRONTEND_ORIGIN}/sociallogin/error/github?reason=${encodeURIComponent(err.message)}`);
   }
 };
 
