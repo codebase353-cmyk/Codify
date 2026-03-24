@@ -1,6 +1,8 @@
 const User = require("../../models/users");
 const jwt = require("jsonwebtoken");
-const nodemailer = require("nodemailer");
+const { Resend } = require('resend');
+
+const resend = new Resend('re_NcaU8e6R_8eAn4okpU5WVVc9fgMM28vZi');
 
 const forgotPassword = async (req, res) => {
     try {
@@ -28,20 +30,9 @@ const forgotPassword = async (req, res) => {
 
         const resetLink = `${process.env.FRONTEND_ORIGIN}/reset-password?token=${token}`;
 
-        const transporter = nodemailer.createTransport({
-            host: 'smtp.gmail.com',
-            port: 587,
-            secure: false,
-            auth: {
-                user: 'rastogiiansh9@gmail.com',
-                pass: 'qqxmatpfkirplgjh'
-            },
-            timeout: 15000
-        });
-
         try {
-            await transporter.sendMail({
-                from: '"HackForge" <rastogiiansh9@gmail.com>',
+            await resend.emails.send({
+                from: 'HackForge <noreply@resend.dev>',
                 to: emailId,
                 subject: "Reset Your Password - HackForge",
                 html: `
@@ -55,7 +46,7 @@ const forgotPassword = async (req, res) => {
                     </div>
                 `
             });
-            res.status(200).json({ message: "Password reset link sent to your email", resetLink });
+            res.status(200).json({ message: "Password reset link sent to your email" });
         } catch (emailError) {
             console.error("Email sending error:", emailError.message);
             res.status(200).json({ 
