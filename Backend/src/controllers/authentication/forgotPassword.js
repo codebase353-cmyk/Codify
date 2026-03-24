@@ -29,14 +29,14 @@ const forgotPassword = async (req, res) => {
         const resetLink = `${process.env.FRONTEND_ORIGIN}/reset-password?token=${token}`;
 
         const transporter = nodemailer.createTransport({
-            host: process.env.SMTP_HOST,
-            port: process.env.SMTP_PORT,
-            secure: false,
+            host: process.env.SMTP_HOST || 'smtp.gmail.com',
+            port: parseInt(process.env.SMTP_PORT) || 587,
+            secure: process.env.SMTP_SECURE === 'true',
             auth: {
                 user: process.env.SMTP_USER,
-                pass: process.env.SMTP_PASS
+                pass: process.env.SMTP_PASS.replace(/\s/g, '')
             },
-            timeout: 5000
+            timeout: 10000
         });
 
         try {

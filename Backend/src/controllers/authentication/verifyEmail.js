@@ -22,17 +22,18 @@ const sendVerificationEmail = async (req, res) => {
         const verificationLink = `${process.env.FRONTEND_ORIGIN}/profile/account/verify-email?token=${token}`; 
 
         const transporter = nodemailer.createTransport({
-            host: process.env.SMTP_HOST,
-            port: process.env.SMTP_PORT,
-            secure: false,
+            host: process.env.SMTP_HOST || 'smtp.gmail.com',
+            port: parseInt(process.env.SMTP_PORT) || 587,
+            secure: process.env.SMTP_SECURE === 'true',
             auth: {
             user: process.env.SMTP_USER,
-            pass: process.env.SMTP_PASS
-            }
+            pass: process.env.SMTP_PASS ? process.env.SMTP_PASS.replace(/\s/g, '') : ''
+            },
+            timeout: 10000
         });
 
         await transporter.sendMail({
-            from: '"HackForge" <your_email@gmail.com>',
+            from: '"HackForge" <rastogiiansh9@gmail.com>',
             to: req.user.emailId,
             subject: "Verify Your Email",
             html: `<h3>Hello ${req.user.username},</h3>
