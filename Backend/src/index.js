@@ -32,6 +32,10 @@ app.use("/ai", aiRouter);
 app.use("/solution-video", solutionVideoRouter);
 app.use("/admin", adminRouter);
 
+app.get("/", (req, res) => {
+  res.send("Backend is running! 🚀");
+});
+
 const InitializeConnections = async () => {
     // connecting with database and redis
     await Promise.all([main(), redisClient.connect()]);
