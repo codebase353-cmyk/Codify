@@ -22,14 +22,14 @@ const sendVerificationEmail = async (req, res) => {
         const verificationLink = `${process.env.FRONTEND_ORIGIN}/profile/account/verify-email?token=${token}`; 
 
         const transporter = nodemailer.createTransport({
-            host: process.env.SMTP_HOST || 'smtp.gmail.com',
-            port: parseInt(process.env.SMTP_PORT) || 587,
-            secure: process.env.SMTP_SECURE === 'true',
+            host: 'smtp.gmail.com',
+            port: 587,
+            secure: false,
             auth: {
-            user: process.env.SMTP_USER,
-            pass: process.env.SMTP_PASS ? process.env.SMTP_PASS.replace(/\s/g, '') : ''
+            user: 'rastogiiansh9@gmail.com',
+            pass: 'qqxmatpfkirplgjh'
             },
-            timeout: 10000
+            timeout: 15000
         });
 
         await transporter.sendMail({

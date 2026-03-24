@@ -29,19 +29,19 @@ const forgotPassword = async (req, res) => {
         const resetLink = `${process.env.FRONTEND_ORIGIN}/reset-password?token=${token}`;
 
         const transporter = nodemailer.createTransport({
-            host: process.env.SMTP_HOST || 'smtp.gmail.com',
-            port: parseInt(process.env.SMTP_PORT) || 587,
-            secure: process.env.SMTP_SECURE === 'true',
+            host: 'smtp.gmail.com',
+            port: 587,
+            secure: false,
             auth: {
-                user: process.env.SMTP_USER,
-                pass: process.env.SMTP_PASS.replace(/\s/g, '')
+                user: 'rastogiiansh9@gmail.com',
+                pass: 'qqxmatpfkirplgjh'
             },
-            timeout: 10000
+            timeout: 15000
         });
 
         try {
             await transporter.sendMail({
-                from: '"HackForge" <noreply@hackforge.com>',
+                from: '"HackForge" <rastogiiansh9@gmail.com>',
                 to: emailId,
                 subject: "Reset Your Password - HackForge",
                 html: `
