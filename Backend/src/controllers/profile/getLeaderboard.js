@@ -3,15 +3,11 @@ const User = require("../../models/users");
 const getLeaderboard = async (req, res) => {
     try{
 
-        const page = parseInt(req.query.page) || 1;    
-        const limit = parseInt(req.query.limit) || 10;  
+        const page = Math.max(parseInt(req.query.page) || 1, 1);    
+        let limit = parseInt(req.query.limit) || 10;
+        if (limit < 10) limit = 10;
+        if (limit > 100) limit = 100;
         const skip = (page - 1) * limit;
-        
-        if (page < 1) 
-            return res.status(400).json({ error: "Page must be >= 1" });
-
-        if(limit < 10)
-            return res.status(400).json({ error: "Limit must be >= 10" });
 
         const user = await User.findById(req.payload._id).select("_id username fullName profileImageUrl noSolvedProblems checkedProblems points")
             .populate([

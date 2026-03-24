@@ -84,10 +84,10 @@ const authWithGithub = async (req, res) => {
 
     // Send cookie and redirect
     res.cookie("token", token, {
-        httpOnly: true,       // cookie not accessible via JS
-        secure: true,         // only sent over HTTPS
-        sameSite: 'None',     // required for cross-site
-        maxAge: 3600000       // 1 hour
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "production",
+        sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+        maxAge: 3600000
     });
 
     res.redirect(process.env.FRONTEND_ORIGIN);

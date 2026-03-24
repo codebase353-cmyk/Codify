@@ -22,10 +22,12 @@ const sendVerificationEmail = async (req, res) => {
         const verificationLink = `${process.env.FRONTEND_ORIGIN}/profile/account/verify-email?token=${token}`; 
 
         const transporter = nodemailer.createTransport({
-            service: 'gmail',
+            host: process.env.SMTP_HOST,
+            port: process.env.SMTP_PORT,
+            secure: false,
             auth: {
-            user: process.env.EMAIL_USER,     // email
-            pass: process.env.EMAIL_PASS      // app password 
+            user: process.env.SMTP_USER,
+            pass: process.env.SMTP_PASS
             }
         });
 

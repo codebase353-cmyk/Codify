@@ -1,10 +1,9 @@
-require("dotenv").config(); // ✅ sabse pehle
+require("dotenv").config();
 const dns = require("node:dns");
 dns.setServers(["8.8.8.8", "8.8.4.4"]);
 const express = require("express");
 const app = express();
 const main = require("./config/database");
-require("dotenv").config();
 const cookieParser = require("cookie-parser");
 const authRouter = require("./routes/authentication");
 const redisClient = require("./config/redis");

@@ -11,8 +11,8 @@ const logout = async (req, res) => {
         // clear the cookie with the same options
         res.cookie("token", "", {
             httpOnly: true,
-            secure: true,
-            sameSite: 'None',
+            secure: process.env.NODE_ENV === "production",
+            sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
             expires: new Date(0)
         });
 

@@ -72,7 +72,7 @@ const judge0 = {
       if (solution.solutionCode == "")
         throw new CustomError("SolutionCode could not be empty field", 400);
 
-      languageId = this.getLanguageId(solution.language);
+      const languageId = this.getLanguageId(solution.language);
 
       for (const testCase of testCases) {
         const batch = {

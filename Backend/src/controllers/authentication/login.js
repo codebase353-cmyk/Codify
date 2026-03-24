@@ -50,7 +50,12 @@ const login = async (req, res) => {
         } 
 
         // sending cookie
-        res.cookie("token", token, { maxAge: 3600000 });
+        res.cookie("token", token, {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === "production",
+            sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+            maxAge: 3600000
+        });
 
         // sending response with status code
         res.status(201).json(reply);

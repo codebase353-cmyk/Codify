@@ -1,5 +1,6 @@
 const cloudinary = require('../../config/cloudinary');
 const SolutionVideo = require("../../models/solutionVideo");
+const mongoose = require("mongoose");
 
 const deleteSolutionVideo = async (req, res) => {
   try {
