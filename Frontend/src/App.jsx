@@ -9,6 +9,9 @@ import Layout from './components/shared/Layout';
 import { Toaster } from 'react-hot-toast';
 import { AllRecentSubmissionsPage, Dashboard, ProblemManager, CreateProblem, UpdateProblem, CreateUser, UserManager, UpdateUser, VideoSolutionManager, UploadVideoSolution, SprintDetail } from './components';
 
+// ✅ IMPORT KEEP-ALIVE UTILITY
+import { startKeepAlive } from './utils/keepAlive';
+
 function App() {
   const [darkTheme, setDarkTheme] = useState(localStorage.getItem("theme") || "dark");
   const { loading, isAuthenticated } = useSelector(state => state.authSlice);
@@ -18,7 +21,14 @@ function App() {
     dispatch(authenticateUser());
   }, []);
 
-  const  handleThemeChange = useCallback(() => {  
+  // ✅ ADD KEEP-ALIVE EFFECT TO PREVENT BACKEND COLD START
+  useEffect(() => {
+    // Start keep-alive pings every 4 minutes
+    const cleanup = startKeepAlive();
+    return cleanup; // Cleanup on component unmount
+  }, []);
+
+  const handleThemeChange = useCallback(() => {  
       const theme = darkTheme ? "light" : "dark";
       localStorage.setItem("theme", theme);
       setDarkTheme(!darkTheme);
