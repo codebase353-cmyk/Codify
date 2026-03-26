@@ -20,16 +20,21 @@ const loginSchema = z.object({
 
 export const LoginPage = () => {
   const dispatch = useDispatch();
-  const { register, handleSubmit, formState: { errors } } = useForm({
+  
+  // ✅ DEMO CREDENTIALS - Pehle se filled
+  const [showPassword, setShowPassword] = useState(false);
+  
+  const { register, handleSubmit, formState: { errors }, setValue } = useForm({
     resolver: zodResolver(loginSchema),
-    mode: 'onBlur'
+    mode: 'onBlur',
+    defaultValues: {
+      emailId: 'rastogiiansh9@gmail.com', // ✅ Demo email pehle se filled
+      password: 'Poiu9874@,'   // ✅ Demo password pehle se filled
+    }
   });
 
-  // for password visibility
-  const [showPassword, setShowPassword] = useState(false);
   const togglePasswordVisibility = () => setShowPassword(!showPassword);
 
-  // on Submit
   const onSubmit = (data) => {
     dispatch(loginUser(data));
   };
@@ -50,6 +55,14 @@ export const LoginPage = () => {
             Log in to continue your coding journey.
           </p>
         </div>
+        
+        {/* ✅ Optional: Demo credentials info banner */}
+        <div className="mt-2 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
+          <p className="text-sm text-blue-600 dark:text-blue-400 text-center">
+            🔑 Demo Account: <span className="font-mono">demo@codify.com</span> / <span className="font-mono">demo123</span>
+          </p>
+        </div>
+        
         <form className="mt-8 space-y-6" onSubmit={handleSubmit(onSubmit)} noValidate>
           <InputField
             id="emailId"
@@ -112,11 +125,6 @@ export const LoginPage = () => {
               icon={<GithubIcon className="h-5 w-5 text-slate-800 dark:text-slate-100" />}
               onClick={() => handleSocialLogin('github')}
            />
-            {/* <SocialButton
-              providerName="LinkedIn"
-              icon={<LinkedInIcon className="h-5 w-5 text-blue-600 dark:text-blue-500" />}
-              onClick={() => handleSocialLogin('linkedin')}
-            /> */}
           </div>
         </div>
         <p className="t-8 text-center text-sm text-slate-600 dark:text-slate-400">
