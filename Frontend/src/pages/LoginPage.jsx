@@ -44,7 +44,7 @@ export const LoginPage = () => {
         <div className="flex flex-col items-center">
           <HackForgeLogo size={8} />
           <h2 className="mt-3 text-center text-3xl font-extrabold text-slate-900 dark:text-white">
-            Welcome Back to HackForge
+            Welcome Back to CodifyX
           </h2>
           <p className="mt-2 text-center text-sm text-slate-600 dark:text-gray-400">
             Log in to continue your coding journey.
