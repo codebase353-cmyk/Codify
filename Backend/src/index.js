@@ -23,6 +23,23 @@ app.use(cors({
 app.use(express.json());
 app.use(cookieParser());
 
+// ========== KEEP-ALIVE / PING ENDPOINTS ==========
+// Simple ping endpoint for UptimeRobot and keep-alive
+app.get("/ping", (req, res) => {
+  res.status(200).send("OK");
+});
+
+// Detailed health check endpoint
+app.get("/api/health", (req, res) => {
+  res.status(200).json({ 
+    status: "healthy", 
+    timestamp: new Date().toISOString(),
+    uptime: process.uptime(),
+    message: "Server is awake and running"
+  });
+});
+// ================================================
+
 app.use("/authentication", authRouter);
 app.use("/profile", profileRouter);
 app.use("/problems", problemRouter);
@@ -44,6 +61,8 @@ const InitializeConnections = async () => {
         const PORT = process.env.PORT || 3000;
         app.listen(PORT, () => {
             console.log(`HackForge server started on port ${PORT}`);
+            console.log(`✅ Ping endpoint: /ping`);
+            console.log(`✅ Health endpoint: /api/health`);
         });
     } catch (error) {
         console.error("Failed to start server:", error);
@@ -52,4 +71,3 @@ const InitializeConnections = async () => {
 }
 
 InitializeConnections()
-
