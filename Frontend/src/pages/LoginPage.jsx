@@ -28,7 +28,7 @@ export const LoginPage = () => {
     resolver: zodResolver(loginSchema),
     mode: 'onBlur',
     defaultValues: {
-      emailId: 'rastogiiansh9@gmail.com', // ✅ Demo email pehle se filled
+      emailId: 'rastogiiansh@gmail.com', // ✅ Demo email pehle se filled
       password: 'Poiu9874@,'   // ✅ Demo password pehle se filled
     }
   });
@@ -61,6 +61,7 @@ export const LoginPage = () => {
         <form className="mt-8 space-y-6" onSubmit={handleSubmit(onSubmit)} noValidate>
           <InputField
             id="emailId"
+
             label="Email address"
             type="email"
             placeholder="you@example.com"
